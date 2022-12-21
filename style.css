@@ -15,9 +15,10 @@ body {
 
 #todo-container {
   width: 500px;
-  background-color: aqua;
+  background-color: rgb(63, 63, 63);
   border-radius: 10px;
   padding: 20px;
+  min-height: 700px;
 }
 
 #title {
@@ -37,7 +38,7 @@ body {
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  background-color: aquamarine;
+  background-color: rgb(212, 212, 212);
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;

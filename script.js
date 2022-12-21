@@ -1,6 +1,6 @@
-function createTask(task) {
-  const taskList = document.getElementById('task-list')
+const taskList = document.getElementById('task-list')
 
+function createTask(task) {
   const li = document.createElement('li')
   li.className = 'task'
   li.innerHTML = task
@@ -14,34 +14,22 @@ function createTask(task) {
   taskList.appendChild(li)
   li.appendChild(div)
   div.appendChild(img)
+
 }
-const arrOfTasks = []
 
 function addTask() {
   const inputTask = document.getElementById('input-task')
   inputTask.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && inputTask.value != '') {
       createTask(inputTask.value)
-      arrOfTasks.push(inputTask.value)
-      localStorage.setItem('tasks', JSON.stringify(arrOfTasks))
+      stripeTask()
+      removeTask()
       inputTask.value = ''
     }
   })
 }
 
 addTask()
-
-const savedTasks = JSON.parse(localStorage.getItem('tasks'))
-
-function createSavedTask() {
-  savedTasks.forEach((element) => {
-    if (localStorage.tasks !== null) {
-      createTask(element)
-    }
-  })
-}
-
-createSavedTask()
 
 function removeTask() {
   const removeTaskBtn = document.getElementsByClassName('remove-task')
@@ -53,18 +41,64 @@ function removeTask() {
   }
 }
 
-removeTask()
+const tasks = document.getElementsByClassName('task')
 
 function stripeTask() {
-  const tasks = document.getElementsByClassName('task')
-for (let task of tasks) {
-  task.addEventListener('dblclick', (e) => {
-    e.target.style.textDecoration = 'line-through'
-  })
-}
+  for (let task of tasks) {
+    task.addEventListener('dblclick', (e) => {
+      e.target.style.textDecoration = 'line-through'
+      e.target.style.backgroundColor = 'green'
+    })
+  }
 }
 
-stripeTask()
+let arrOfTasks = []
+
+function saveList() {
+  const saveListBtn = document.getElementById('save-list')
+  saveListBtn.addEventListener('click', () => {
+    for (let task of tasks) {
+      setItem(task.innerText)
+    }
+  })
+}
+
+saveList()
+
+function setItem(item) {
+  arrOfTasks.push(item)
+  setItemOnDB()
+}
+
+function setItemOnDB() {
+  localStorage.setItem('tasks', JSON.stringify(arrOfTasks))
+}
+
+const savedTasks = JSON.parse(localStorage.getItem('tasks'))
+
+function createSavedTask() {
+  savedTasks.forEach((element) => {
+    if (localStorage.tasks !== null) {
+      createTask(element)
+      stripeTask()
+      removeTask()
+    }
+  })
+}
+
+createSavedTask()
+
+function clearTaskList() {
+  const clearListBtn = document.getElementById('clear-list')
+  clearListBtn.addEventListener('click', () => {
+    taskList.innerHTML = ''
+    localStorage.removeItem('tasks')
+  })
+}
+
+clearTaskList()
+
+
 
 
 
