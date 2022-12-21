@@ -15,27 +15,30 @@ function createTask(task) {
   li.appendChild(div)
   div.appendChild(img)
 }
-
 const arrOfTasks = []
-const inputTask = document.getElementById('input-task')
-inputTask.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter' && inputTask.value != '') {
-    createTask(inputTask.value)
-    arrOfTasks.push(inputTask.value)
-    localStorage.setItem('tasks', JSON.stringify(arrOfTasks))
-    inputTask.value = ''
-  }
-})
 
+function addTask() {
+  const inputTask = document.getElementById('input-task')
+  inputTask.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && inputTask.value != '') {
+      createTask(inputTask.value)
+      arrOfTasks.push(inputTask.value)
+      localStorage.setItem('tasks', JSON.stringify(arrOfTasks))
+      inputTask.value = ''
+    }
+  })
+}
 
-const saveTasks = JSON.parse(localStorage.getItem('tasks'))
+addTask()
+
+const savedTasks = JSON.parse(localStorage.getItem('tasks'))
 
 function createSavedTask() {
-  saveTasks.forEach((element) => {
+  savedTasks.forEach((element) => {
     if (localStorage.tasks !== null) {
       createTask(element)
     }
-  });
+  })
 }
 
 createSavedTask()
@@ -51,6 +54,20 @@ function removeTask() {
 }
 
 removeTask()
+
+function stripeTask() {
+  const tasks = document.getElementsByClassName('task')
+for (let task of tasks) {
+  task.addEventListener('dblclick', (e) => {
+    e.target.style.textDecoration = 'line-through'
+  })
+}
+}
+
+stripeTask()
+
+
+
 
 
 
