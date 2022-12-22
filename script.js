@@ -48,6 +48,7 @@ function stripeTask() {
     task.addEventListener('dblclick', (e) => {
       e.target.style.textDecoration = 'line-through'
       e.target.style.backgroundColor = 'green'
+      e.target.classList.add('done')
     })
   }
 }
@@ -97,6 +98,24 @@ function clearTaskList() {
 }
 
 clearTaskList()
+
+function clearDoneTasks() {
+  const clearDoneTaskBtn = document.getElementById('clear-done-task')
+  clearDoneTaskBtn.addEventListener('click', () => {
+    const doneTasks = document.querySelectorAll('.done').forEach(e => {
+      e.remove()
+    })
+  })
+}
+
+clearDoneTasks()
+
+
+
+
+
+
+
 
 
 

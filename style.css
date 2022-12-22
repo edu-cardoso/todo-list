@@ -11,14 +11,15 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  
 }
 
 #todo-container {
   width: 500px;
-  background-color: rgb(63, 63, 63);
+  background-color: rgb(149, 148, 150);
   border-radius: 10px;
   padding: 20px;
-  min-height: 700px;
+  min-height: 500px;
 }
 
 #title {
@@ -30,6 +31,8 @@ body {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 30px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  border: none;
 }
 
 
@@ -39,11 +42,52 @@ body {
   align-items: center;
   list-style: none;
   background-color: rgb(212, 212, 212);
-  margin-bottom: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  margin-bottom: 12px;
   padding: 10px;
   border-radius: 10px;
+  font-size: 20px;
 }
 
 .remove-task {
   cursor: pointer;
 }
+
+#btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+
+}
+
+#clear-done-task {
+  background-color: rgb(0, 183, 255);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  font-size: 20px;
+}
+
+#clear-list {
+  background-color: rgb(255, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  font-size: 20px;
+}
+
+
+#save-list {
+  background-color: rgb(43, 255, 0);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  font-size: 20px;
+}
+
