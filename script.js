@@ -24,6 +24,8 @@ function addTask() {
       createTask(inputTask.value)
       stripeTask()
       removeTask()
+      clearTaskList()
+      clearDoneTasks()
       inputTask.value = ''
     }
   })
@@ -97,8 +99,6 @@ function clearTaskList() {
   })
 }
 
-clearTaskList()
-
 function clearDoneTasks() {
   const clearDoneTaskBtn = document.getElementById('clear-done-task')
   clearDoneTaskBtn.addEventListener('click', () => {
@@ -108,7 +108,9 @@ function clearDoneTasks() {
   })
 }
 
-clearDoneTasks()
+
+
+
 
 
 
