@@ -33,8 +33,8 @@ function addTask() {
 
 addTask()
 
+const removeTaskBtn = document.getElementsByClassName('remove-task')
 function removeTask() {
-  const removeTaskBtn = document.getElementsByClassName('remove-task')
   for (let btn of removeTaskBtn) {
     btn.addEventListener('click', () => {
       const btnParent = btn.parentNode
@@ -60,6 +60,7 @@ let arrOfTasks = []
 function saveList() {
   const saveListBtn = document.getElementById('save-list')
   saveListBtn.addEventListener('click', () => {
+    arrOfTasks = []
     for (let task of tasks) {
       setItem(task.innerText)
     }
@@ -78,6 +79,8 @@ function setItemOnDB() {
 }
 
 const savedTasks = JSON.parse(localStorage.getItem('tasks'))
+
+console.log(savedTasks);
 
 function createSavedTask() {
   savedTasks.forEach((element) => {
@@ -99,6 +102,8 @@ function clearTaskList() {
   })
 }
 
+clearTaskList()
+
 function clearDoneTasks() {
   const clearDoneTaskBtn = document.getElementById('clear-done-task')
   clearDoneTaskBtn.addEventListener('click', () => {
@@ -107,6 +112,8 @@ function clearDoneTasks() {
     })
   })
 }
+
+clearDoneTasks()
 
 
 
