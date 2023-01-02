@@ -11,7 +11,6 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  
 }
 
 #todo-container {
@@ -20,6 +19,7 @@ body {
   border-radius: 10px;
   padding: 20px;
   min-height: 700px;
+  margin-bottom: 50px;
 }
 
 #title {
@@ -31,10 +31,9 @@ body {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 30px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
   border: none;
 }
-
 
 .task {
   display: flex;
@@ -42,7 +41,7 @@ body {
   align-items: center;
   list-style: none;
   background-color: rgb(212, 212, 212);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
   margin-bottom: 12px;
   padding: 10px;
   border-radius: 10px;
@@ -59,12 +58,14 @@ body {
   margin-bottom: 30px;
 }
 
-#clear-done-task, #clear-list, #save-list   {
+#clear-done-task,
+#clear-list,
+#save-list {
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, .7);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
   font-size: 20px;
 }
 
@@ -76,8 +77,22 @@ body {
   background-color: rgb(255, 0, 0);
 }
 
-
 #save-list {
   background-color: rgb(255, 196, 0);
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
+
+footer p {
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+  margin-right: 10px;
+}

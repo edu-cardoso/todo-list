@@ -17,10 +17,12 @@ function createTask(task) {
 
 }
 
+const tasks = document.getElementsByClassName('task')
+
 function addTask() {
   const inputTask = document.getElementById('input-task')
   inputTask.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && inputTask.value != '') {
+    if (e.key === 'Enter' && inputTask.value != '' && tasks.length <= 10) {
       createTask(inputTask.value)
       stripeTask()
       removeTask()
@@ -42,8 +44,6 @@ function removeTask() {
     })
   }
 }
-
-const tasks = document.getElementsByClassName('task')
 
 function stripeTask() {
   for (let task of tasks) {
@@ -79,8 +79,6 @@ function setItemOnDB() {
 }
 
 const savedTasks = JSON.parse(localStorage.getItem('tasks'))
-
-console.log(savedTasks);
 
 function createSavedTask() {
   savedTasks.forEach((element) => {
