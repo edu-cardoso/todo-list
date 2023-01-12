@@ -100,6 +100,7 @@ footer p {
 @media (max-width: 576px) {
   body {
     display: block;
+    background-color: rgb(179, 179, 179);
   }
 
   #title {
