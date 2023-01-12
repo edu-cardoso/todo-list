@@ -96,3 +96,36 @@ footer p {
   font-size: 20px;
   margin-right: 10px;
 }
+
+@media (max-width: 576px) {
+  body {
+    display: block;
+  }
+
+  #title {
+    margin-top: 0;
+  }
+
+  #todo-container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  #btns {
+    flex-direction: column;
+  }
+
+  #clear-done-task {
+    display: none;
+  }
+
+  #clear-list,
+  #save-list {
+    margin-top: 10px;
+  }
+
+  footer {
+    display: none;
+  }
+}
